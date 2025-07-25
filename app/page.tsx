@@ -6,42 +6,64 @@ import Testimonial from './components/Testimonial'
 import Contacto from './components/Contacto'
 import Tecnologias from './components/Tecnologias'
 import { FaCode, FaPalette, FaChartLine } from 'react-icons/fa'
+import { motion } from 'framer-motion'
 
 export default function Home() {
   return (
     <>
+      {/* 🧲 Hero */}
       <Hero />
 
       {/* ⚙️ Servicios */}
-      <section id="servicios" className="bg-white shadow-sm border rounded-lg px-6 py-20 mt-12 mx-auto max-w-6xl">
-        <h2 className="text-3xl font-semibold text-center mb-12 text-blue-700">Qué hacemos</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <ServiceCard
-            title="Desarrollo a medida"
-            description="Sistemas web con Next.js, Tailwind y Prisma. Escalables y mantenibles."
-            icon={FaCode}
-          />
-          <ServiceCard
-            title="Identidad de marca"
-            description="Diseños simples, profesionales y coherentes para comunicar con claridad."
-            icon={FaPalette}
-          />
-          <ServiceCard
-            title="Métricas significativas"
-            description="Interfaces con datos útiles para tomar decisiones y mejorar experiencia."
-            icon={FaChartLine}
-          />
+      <section id="servicios" className="w-full py-24 px-6 bg-gradient-to-br from-white via-blue-50 to-blue-100">
+
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-blue-800 text-center mb-16"
+        >
+          Qué hacemos
+        </motion.h2>
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-12 text-center">
+          <div>
+            <FaCode className="text-blue-600 text-5xl mb-4 mx-auto" />
+            <h3 className="text-xl font-semibold mb-2 text-blue-800">Desarrollo a medida</h3>
+            <p className="text-base text-blue-900 opacity-80">
+              Aplicaciones modernas con Next.js, Tailwind y Prisma. Robustos y sincronizados.
+            </p>
+          </div>
+          <div>
+            <FaPalette className="text-blue-600 text-5xl mb-4 mx-auto" />
+            <h3 className="text-xl font-semibold mb-2 text-blue-800">Identidad visual</h3>
+            <p className="text-base text-blue-900 opacity-80">
+              Branding claro, profesional y alineado con tu propósito.
+            </p>
+          </div>
+          <div>
+            <FaChartLine className="text-blue-600 text-5xl mb-4 mx-auto" />
+            <h3 className="text-xl font-semibold mb-2 text-blue-800">Métricas operativas</h3>
+            <p className="text-base text-blue-900 opacity-80">
+              Interfaces que sincronizan datos reales y decisiones concretas.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* 🧰 Tecnologías */}
-      <Tecnologias />
+      <section id="tecnologias" className="w-full py-24 px-6 bg-white">
+
+        <Tecnologias />
+      </section>
 
       {/* 🧭 Enfoque */}
-      <section id="enfoque" className="bg-white shadow-sm border rounded-lg px-6 py-20 mt-12 mx-auto max-w-6xl">
+      <section id="enfoque" className="w-full py-24 px-6 bg-gradient-to-bl from-blue-100 via-blue-50 to-white">
+
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-semibold mb-6 text-blue-700">Nuestro enfoque</h2>
-          <p className="text-lg text-gray-700">
+          <h2 className="text-4xl font-bold mb-8 text-blue-800">Nuestro enfoque</h2>
+          <p className="text-lg text-blue-900 opacity-80 leading-relaxed">
             MonteStack nace para construir soluciones que combinan precisión técnica con diseño estratégico.
             No solo desarrollamos sistemas: los hacemos intuitivos, útiles y visualmente sólidos.
           </p>
@@ -49,9 +71,10 @@ export default function Home() {
       </section>
 
       {/* 💬 Testimonios */}
-      <section className="bg-white shadow-sm border rounded-lg px-6 py-20 mt-12 mx-auto max-w-6xl">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">Testimonios</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <section className="w-full py-24 px-6 bg-gradient-to-b from-blue-50 via-white to-white">
+
+        <h2 className="text-4xl font-bold text-center mb-16 text-blue-800">Testimonios</h2>
+        <div className="grid md:grid-cols-2 gap-12 text-left">
           <Testimonial
             name="Lucía R."
             role="CEO – Afluente"
@@ -66,7 +89,11 @@ export default function Home() {
       </section>
 
       {/* 📬 Contacto */}
-      <Contacto />
+      <section className="w-full py-24 px-6 bg-white">
+        <Contacto />
+      </section>
+
+
     </>
   )
 }

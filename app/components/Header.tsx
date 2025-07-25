@@ -17,7 +17,7 @@ export default function Header() {
             <Image
               src="/logo-ms.png"
               alt="MonteStack logo"
-              width={190}
+              width={170}
               height={100}
               className="object-contain"
               priority
