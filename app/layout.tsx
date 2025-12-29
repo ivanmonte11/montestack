@@ -5,6 +5,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import FocusVisibleLoader from './components/FocusVisibleLoader'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,8 +24,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <body className={`${inter.className} bg-white text-gray-900 antialiased`}>
+    <html lang="es" suppressHydrationWarning>
+      <body className={`${inter.className} bg-[#0a0f1e] text-white antialiased selection:bg-blue-500/30`}>
+        <FocusVisibleLoader />
         <Header />
         <main>{children}</main>
         <Footer />
